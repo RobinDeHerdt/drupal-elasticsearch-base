@@ -16,6 +16,7 @@ module:
   demo_umami_content: 0
   dynamic_page_cache: 0
   editor: 0
+  elasticsearch_connector: 0
   field: 0
   field_ui: 0
   file: 0
@@ -41,6 +42,8 @@ module:
   rdf: 0
   responsive_image: 0
   search: 0
+  search_api: 0
+  search_api_elasticsearch_attachments: 0
   shortcut: 0
   system: 0
   taxonomy: 0
