@@ -36,7 +36,9 @@ class SearchController extends ControllerBase {
       $entity_type_id = $entity->getEntityTypeId();
 
       $entity_view_builder = $this->entityTypeManager()->getViewBuilder($entity_type_id);
-      $teasers[] = $entity_view_builder->view($entity, 'teaser', $entity->language()->getId());
+      $teaser = $entity_view_builder->view($entity, 'teaser', $entity->language()->getId());
+      $teaser['#search_api_excerpt'] = $item->getExcerpt();
+      $teasers[] = $teaser;
     }
 
     return $teasers;
