@@ -1,0 +1,7 @@
+drupal_search.page:
+  path: '/es7_search'
+  defaults:
+    _controller: '\Drupal\drupal_search\Controller\SearchController::searchPage'
+    _title: 'Search'
+  requirements:
+    _permission: 'access content'

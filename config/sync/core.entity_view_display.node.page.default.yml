@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_documents
     - node.type.page
   module:
     - text
@@ -27,6 +28,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_documents:
+    type: entity_reference_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   links:
     weight: 1
     region: content
@@ -34,3 +44,4 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  search_api_excerpt: true

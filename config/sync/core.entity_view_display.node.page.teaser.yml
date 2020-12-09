@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_documents
     - node.type.page
   module:
     - text
@@ -29,4 +30,6 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  field_documents: true
   langcode: true
+  search_api_excerpt: true
