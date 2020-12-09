@@ -3,6 +3,7 @@
 namespace Drupal\drupal_search\Controller;
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Plugin\DataType\EntityAdapter;
 use Drupal\search_api\Entity\Index;
 use Drupal\Core\Controller\ControllerBase;
 
@@ -27,6 +28,7 @@ class SearchController extends ControllerBase {
 
     $teasers = [];
     foreach ($results->getResultItems() as $item_id => $item) {
+      /* @var EntityAdapter $entity_adapter */
       $entity_adapter = $index->loadItem($item_id);
 
       /* @var EntityInterface $entity */
@@ -34,7 +36,7 @@ class SearchController extends ControllerBase {
       $entity_type_id = $entity->getEntityTypeId();
 
       $entity_view_builder = $this->entityTypeManager()->getViewBuilder($entity_type_id);
-      $teasers[] = $entity_view_builder->view($entity, 'teaser');
+      $teasers[] = $entity_view_builder->view($entity, 'teaser', $entity->language()->getId());
     }
 
     return $teasers;
