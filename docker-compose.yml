@@ -57,6 +57,7 @@ services:
     container_name: "${PROJECT_NAME}_elasticsearch"
     environment:
       ES_JAVA_OPTS: "-Xms500m -Xmx500m"
+      ES_PLUGINS_INSTALL: "ingest-attachment"
     ulimits:
       memlock:
         soft: -1
