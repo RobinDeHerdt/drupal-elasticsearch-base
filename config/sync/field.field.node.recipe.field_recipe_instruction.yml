@@ -1,0 +1,23 @@
+uuid: 97771684-12bc-4960-b9b1-5d58e3f27e2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_recipe_instruction
+    - node.type.recipe
+  module:
+    - text
+_core:
+  default_config_hash: gy8xsSbpLV0Hj2I8A2xbAuJMPnb3CsvU-iFklHfbaao
+id: node.recipe.field_recipe_instruction
+field_name: field_recipe_instruction
+entity_type: node
+bundle: recipe
+label: 'Recipe instruction'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
