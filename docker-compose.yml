@@ -1,0 +1,97 @@
+version: "3.7"
+
+services:
+  mariadb:
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${PROJECT_NAME}_mariadb"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+
+  php:
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_php"
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+    #      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S opensmtpd:25
+    #      DB_HOST: $DB_HOST
+    #      DB_PORT: $DB_PORT
+    #      DB_USER: $DB_USER
+    #      DB_PASSWORD: $DB_PASSWORD
+    #      DB_NAME: $DB_NAME
+    #      DB_DRIVER: $DB_DRIVER
+    #      PHP_FPM_USER: wodby
+    #      PHP_FPM_GROUP: wodby
+    #      COLUMNS: 80 # Set 80 columns for docker exec -it.
+    #      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
+    #      PHP_XDEBUG: 1
+    #      PHP_XDEBUG_DEFAULT_ENABLE: 1
+    #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+    #      PHP_IDE_CONFIG: serverName=my-ide
+    #      PHP_XDEBUG_IDEKEY: "my-ide"
+    #      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ Mac/Win
+    #      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux
+    #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+    #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+    #      PHP_XDEBUG_REMOTE_LOG: /tmp/php-xdebug.log
+    #      # PHPUnit Drupal testing configurations
+    #      SIMPLETEST_BASE_URL: "http://nginx"
+    #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
+    #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+    volumes:
+      - ./:/var/www/html:cached
+
+  crond:
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_crond"
+    environment:
+      CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
+    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
+    volumes:
+      - ./:/var/www/html:cached
+
+  apache:
+    image: wodby/apache:$APACHE_TAG
+    container_name: "${PROJECT_NAME}_apache"
+    depends_on:
+      - php
+    environment:
+      APACHE_LOG_LEVEL: debug
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+    volumes:
+      - ./:/var/www/html:cached
+    labels:
+      - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
+
+  elasticsearch:
+    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
+    container_name: "${PROJECT_NAME}_elasticsearch"
+    environment:
+      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: wodby/kibana:$KIBANA_TAG
+    container_name: "${PROJECT_NAME}_kibana"
+    depends_on:
+    - elasticsearch
+    labels:
+    - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
+    - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
+
+  traefik:
+    image: traefik:v2.0
+    container_name: "${PROJECT_NAME}_traefik"
+    command: --api.insecure=true --providers.docker
+    ports:
+      - '8000:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
