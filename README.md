@@ -81,7 +81,7 @@ GET elasticsearch_index_drupal_default/_search
       "es_attachment.attachment.content": {}
     },
     "pre_tags": [
-      ""
+      "<strong>"
     ],
     "post_tags": [
       "</strong>"
