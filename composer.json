@@ -11,12 +11,37 @@
     ],
     "repositories": [
         {
+            "type": "package",
+            "package": {
+                "name": "library-blockui/blockui",
+                "version": "2.70",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/malsup/blockui/archive/2.70.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ajaxorg/ace-builds",
+                "version": "1.4",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/ajaxorg/ace-builds/archive/v1.4.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
     ],
     "require": {
         "php": ">=7.0.8",
+        "ajaxorg/ace-builds": "^1.4",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/console": "^1.0.2",
@@ -24,7 +49,9 @@
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/elasticsearch_connector": "^7.0@alpha",
         "drupal/search_api": "^1.18",
+        "drupal/simple_live_css": "^1.0",
         "drush/drush": "^9.7.1 | ^10.0.0",
+        "library-blockui/blockui": "^2.70",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
@@ -38,7 +65,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "drupal/console-extend-plugin": true
+        }
     },
     "autoload": {
         "classmap": [

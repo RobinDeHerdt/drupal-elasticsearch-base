@@ -72,6 +72,21 @@ services:
     - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
     - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
 
+  chrome:
+    image: drupalci/webdriver-chromedriver:production
+    ulimits:
+      core:
+        soft: -1
+        hard: -1
+    ports:
+      - "4444:4444"
+      - "9515:9515"
+    entrypoint:
+      - chromedriver
+      - "--log-path=/tmp/chromedriver.log"
+      - "--verbose"
+      - "--whitelisted-ips="
+
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
