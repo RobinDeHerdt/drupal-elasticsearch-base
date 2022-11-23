@@ -45,8 +45,9 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.8.0",
-        "drupal/core-composer-scaffold": "^8.8.0",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
         "drupal/elasticsearch_connector": "^7.0@alpha",
         "drupal/search_api": "^1.18",
         "drupal/simple_live_css": "^1.0",
@@ -57,7 +58,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8.0"
+        "drupal/core-dev": "^9"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -71,7 +72,9 @@
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "zaporylie/composer-drupal-optimizations": true,
-            "drupal/console-extend-plugin": true
+            "drupal/console-extend-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-project-message": true
         }
     },
     "autoload": {
