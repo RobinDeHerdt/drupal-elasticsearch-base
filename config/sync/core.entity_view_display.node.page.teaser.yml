@@ -5,9 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
-    - field.field.node.page.field_documents
     - node.type.page
   module:
+    - text
     - user
 _core:
   default_config_hash: 9-skoU79foEdbQDjMS0Kgd9Jm3MHd02yDkipcEq-CEU
@@ -16,14 +16,17 @@ targetEntityType: node
 bundle: page
 mode: teaser
 content:
-  search_api_excerpt:
-    weight: 0
-    region: content
-    settings: {  }
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
     third_party_settings: {  }
+    weight: 100
+    region: content
+  links:
+    weight: 101
+    region: content
 hidden:
-  body: true
   content_moderation_control: true
-  field_documents: true
   langcode: true
-  links: true

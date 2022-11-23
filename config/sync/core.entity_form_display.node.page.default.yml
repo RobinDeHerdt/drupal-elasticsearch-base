@@ -4,12 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_documents
     - node.type.page
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - media_library
     - path
     - text
 _core:
@@ -35,13 +33,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_documents:
-    type: media_library_widget
-    weight: 26
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-    region: content
   langcode:
     type: language_select
     weight: 2
@@ -63,24 +54,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 3
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 4
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -92,9 +83,9 @@ content:
     third_party_settings: {  }
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 1

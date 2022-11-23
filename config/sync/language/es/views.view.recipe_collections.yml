@@ -1,8 +1,12 @@
 label: 'Recopilación de Recetas'
 display:
   default:
-    display_title: Máster
+    display_title: 'Por defecto'
     display_options:
+      title: 'Recopilación de recetas'
+      fields:
+        name:
+          separator: ', '
       exposed_form:
         options:
           submit_button: Aplicar
@@ -10,9 +14,5 @@ display:
           exposed_sorts_label: 'Ordenar por'
           sort_asc_label: Asc
           sort_desc_label: Desc
-      fields:
-        name:
-          separator: ', '
-      title: 'Recopilación de recetas'
   block:
     display_title: Bloque
