@@ -50,6 +50,7 @@
         "drupal/core-recommended": "^9",
         "drupal/elasticsearch_connector": "^7.0@alpha",
         "drupal/elasticsearch_search_api": "^2.0",
+        "drupal/jsonlog": "^3.0",
         "drupal/search_api": "^1.18",
         "drupal/simple_live_css": "^1.0",
         "drush/drush": "^9.7.1 | ^10.0.0",
@@ -59,7 +60,8 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^9"
+        "drupal/core-dev": "^9",
+        "phpspec/prophecy-phpunit": "^2"
     },
     "conflict": {
         "drupal/drupal": "*"
