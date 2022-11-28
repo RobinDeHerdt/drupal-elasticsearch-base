@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72e5b383d6501e70cf7adc20693ff148",
+    "content-hash": "c00b8eb2887136ceae2823eb3f9de3a8",
     "packages": [
         {
             "name": "ajaxorg/ace-builds",
@@ -2287,6 +2287,62 @@
             "support": {
                 "source": "https://github.com/nodespark/elasticsearch_connector",
                 "issues": "https://www.drupal.org/project/issues/elasticsearch_connector"
+            }
+        },
+        {
+            "name": "drupal/elasticsearch_search_api",
+            "version": "dev-2.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/elasticsearch_search_api.git",
+                "reference": "3cf8ce2d4c7822b38c618a3ff6fd1f9de39ae1a1"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/elasticsearch_connector": "^7.0@alpha",
+                "drupal/search_api": "^1.11",
+                "library-blockui/blockui": "^2.70"
+            },
+            "require-dev": {
+                "drupal/elasticsearch_connector": "*",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
+                "drupal": {
+                    "version": "2.0.x-dev",
+                    "datestamp": "1659011908",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jOpdebeeck",
+                    "homepage": "https://www.drupal.org/user/3442285"
+                },
+                {
+                    "name": "robindh",
+                    "homepage": "https://www.drupal.org/user/3555113"
+                }
+            ],
+            "description": "API module to create Elasticsearch based search pages",
+            "homepage": "https://www.drupal.org/project/elasticsearch_search_api",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/elasticsearch_search_api",
+                "issues": "https://www.drupal.org/project/issues/elasticsearch_search_api"
             }
         },
         {
