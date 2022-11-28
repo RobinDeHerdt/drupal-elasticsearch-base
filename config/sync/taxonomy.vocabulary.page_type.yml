@@ -1,0 +1,10 @@
+uuid: 337b2cd7-c7cf-4ece-b757-27945c60d22f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZmO6efThl3MobfCtIZ0wZHFCair7ZExevrJvVXXDeBg
+name: 'Page type'
+vid: page_type
+description: ''
+weight: 0

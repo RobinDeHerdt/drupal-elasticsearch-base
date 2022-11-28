@@ -1,0 +1,87 @@
+uuid: e3176b69-3db1-4097-a7df-17bdc47d46fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_page_type
+    - search_api.server.elastic
+  module:
+    - node
+    - taxonomy
+    - search_api
+_core:
+  default_config_hash: OqLUHUxLspIl9RuMD4ORDkYAqEXRMdx0XEDf_aKXZBQ
+id: example_general
+name: example
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.body
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  page_type:
+    label: 'Page type » Taxonomy term » Term ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_page_type:entity:tid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_page_type
+      module:
+        - taxonomy
+  page_type_name:
+    label: 'Page type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_page_type:entity:name'
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_page_type
+      module:
+        - taxonomy
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - elasticsearch_page
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+  track_changes_in_references: true
+server: elastic

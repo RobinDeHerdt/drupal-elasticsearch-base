@@ -1,0 +1,25 @@
+uuid: c2abb3d4-7db5-40d1-bf12-8596ba3daf23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.elasticsearch_page
+  module:
+    - text
+_core:
+  default_config_hash: rFtIzE1NflDe2M9MYyUb11WrkZe0zvI87o41-NB8RBc
+id: node.elasticsearch_page.body
+field_name: body
+entity_type: node
+bundle: elasticsearch_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

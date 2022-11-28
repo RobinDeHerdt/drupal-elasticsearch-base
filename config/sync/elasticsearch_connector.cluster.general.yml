@@ -1,0 +1,19 @@
+uuid: 21481649-5091-467c-8add-d4cfe22d22e4
+langcode: en
+status: '1'
+dependencies: {  }
+cluster_id: general
+name: General
+url: 'http://elasticsearch:9200'
+options:
+  multiple_nodes_connection: false
+  use_authentication: 0
+  authentication_type: Basic
+  username: ''
+  password: ''
+  timeout: '3'
+  rewrite:
+    rewrite_index: 0
+    index:
+      prefix: ''
+      suffix: ''

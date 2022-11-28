@@ -20,6 +20,7 @@ module:
   editor: 0
   elasticsearch_connector: 0
   elasticsearch_search_api: 0
+  elasticsearch_search_api_example: 0
   field: 0
   field_ui: 0
   file: 0
