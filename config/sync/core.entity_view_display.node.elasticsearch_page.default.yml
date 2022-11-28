@@ -1,0 +1,41 @@
+uuid: b88607de-d622-4d6a-a125-8c430106e9a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.elasticsearch_page.body
+    - field.field.node.elasticsearch_page.field_page_type
+    - node.type.elasticsearch_page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: 5GhikmieOmdzj-36RpkTKP8PEj8Pklq9OXuP0CVlLZg
+id: node.elasticsearch_page.default
+targetEntityType: node
+bundle: elasticsearch_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_page_type:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
