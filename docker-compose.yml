@@ -20,11 +20,12 @@ services:
     container_name: "${PROJECT_NAME}_php"
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_XDEBUG: 1                                # Enable Xdebug extension
-      PHP_XDEBUG_DEFAULT_ENABLE: 1                 # Comment out to disable (default).
-      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0            # This is needed to respect remote.host setting below
-      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1
-      PHP_XDEBUG_REMOTE_PORT: 9000
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_MODE: debug
+      PHP_IDE_CONFIG: serverName=phpstorm
+      PHP_XDEBUG_IDEKEY: "phpstorm"
+      PHP_XDEBUG_CLIENT_HOST: 172.17.0.1 # Linux
+      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
     volumes:
       - ./:/var/www/html:cached
 
