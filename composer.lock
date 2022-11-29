@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b054e5ed1ac0088f8029d392b3f087f",
+    "content-hash": "60d7b3ad057f9032c07d54a1ff7e8288",
     "packages": [
         {
             "name": "ajaxorg/ace-builds",
@@ -2295,10 +2295,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/elasticsearch_search_api.git",
-                "reference": "3cf8ce2d4c7822b38c618a3ff6fd1f9de39ae1a1"
+                "reference": "1ba58e01ceaa5a097b5574932acf60565e736cc2"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8 || ^9 || ^10",
                 "drupal/elasticsearch_connector": "^7.0@alpha",
                 "drupal/search_api": "^1.11",
                 "library-blockui/blockui": "^2.70"
@@ -2314,7 +2314,7 @@
                 },
                 "drupal": {
                     "version": "2.0.x-dev",
-                    "datestamp": "1659011908",
+                    "datestamp": "1669636215",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -12210,7 +12210,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.8"
+        "php": ">=8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
