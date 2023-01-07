@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                   echo 'Hello, world'
-                  checkComposerSecurityUpdates
+                  checkComposerSecurityUpdates()
                 }
             }
         }
