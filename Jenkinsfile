@@ -1,6 +1,14 @@
- @Library('automatic-updates')_
+@Library('automatic-updates')_
 
- stage('Demo') {
-     echo 'Hello world'
-     checkComposerSecurityUpdates
- }
+pipeline {
+    agent any
+    stages {
+        stage('Demo') {
+            steps {
+                echo 'Hello, world'
+
+                checkComposerSecurityUpdates
+            }
+        }
+    }
+}
