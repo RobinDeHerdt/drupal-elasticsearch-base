@@ -10,24 +10,24 @@ pipeline {
                 }
             }
         }
-        stage('Composer security check') {
+        stage('Composer security updates') {
             steps {
                 script {
-                  checkComposerSecurityUpdates()
+                    composerSecurityUpdates()
                 }
             }
         }
-        stage('Drush security check') {
+        stage('Drush security updates') {
             steps {
                 script {
-                  checkDrushSecurityUpdates()
+                    drushSecurityUpdates()
                 }
             }
         }
         stage('Commit') {
             steps {
                 script {
-                  commit()
+                    commitChanges()
                 }
             }
         }
