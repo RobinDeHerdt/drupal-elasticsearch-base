@@ -24,5 +24,12 @@ pipeline {
                 }
             }
         }
+        stage('Commit') {
+            steps {
+                script {
+                  commit()
+                }
+            }
+        }
     }
 }
