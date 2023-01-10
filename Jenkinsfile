@@ -3,11 +3,24 @@
 pipeline {
     agent any
     stages {
-        stage('Demo') {
+        stage('Setup') {
             steps {
                 script {
-                  echo 'Hello, world'
+                    setup()
+                }
+            }
+        }
+        stage('Composer security check') {
+            steps {
+                script {
                   checkComposerSecurityUpdates()
+                }
+            }
+        }
+        stage('Drush security check') {
+            steps {
+                script {
+                  checkDrushSecurityUpdates()
                 }
             }
         }
