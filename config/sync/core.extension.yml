@@ -16,6 +16,7 @@ module:
   datetime: 0
   dblog: 0
   demo_umami_content: 0
+  drupal_search: 0
   dynamic_page_cache: 0
   editor: 0
   elasticsearch_connector: 0
@@ -46,8 +47,11 @@ module:
   quickedit: 0
   rdf: 0
   responsive_image: 0
+  rest: 0
+  restui: 0
   search: 0
   search_api: 0
+  serialization: 0
   shortcut: 0
   system: 0
   taxonomy: 0
